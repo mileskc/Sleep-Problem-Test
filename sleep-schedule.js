@@ -73,7 +73,7 @@ function solution(S) {
     })
     console.log(MonStartTimes)
 
-    let MonStartTimesSorted = MonStartTimes.sort()
+    let MonStartTimesSorted = MonStartTimes.sort((a, b) => a - b)
     console.log(MonStartTimes)
     console.log(MonStartTimesSorted)
 
@@ -95,7 +95,7 @@ function solution(S) {
     })
     console.log(MonEndTimes)
 
-    let MonEndTimesSorted = MonEndTimes.sort()
+    let MonEndTimesSorted = MonEndTimes.sort((a, b) => a - b)
     console.log(MonEndTimes)
     console.log(MonEndTimesSorted)
 
@@ -340,7 +340,7 @@ function solution(S) {
         return num + SunStartMinNum[i]
     })
 
-    let SunStartTimesSorted = SunStartTimes.sort()
+    let SunStartTimesSorted = SunStartTimes.sort((a, b) => a - b)
     console.log(SunStartTimes)
     console.log(SunStartTimesSorted)
 
@@ -362,9 +362,29 @@ function solution(S) {
         return num + SunEndMinNum[i]
     })
 
-    let SunEndTimesSorted = SunEndTimes.sort()
+    let SunEndTimesSorted = SunEndTimes.sort((a, b) => a - b)
     console.log(SunEndTimes)
     console.log(SunEndTimesSorted)
+
+    //Array of all Start times
+
+    let StartTimesArr = MonStartTimesSorted.concat(TuesStartTimesSorted, WedStartTimesSorted, ThursStartTimesSorted, FriStartTimesSorted, SatStartTimesSorted, SunStartTimesSorted)
+
+    console.log(StartTimesArr)
+
+    //Array of all End Times
+
+    let EndTimesArr = MonEndTimesSorted.concat(TuesEndTimesSorted, WedEndTimesSorted, ThursEndTimesSorted, FriEndTimesSorted, SatEndTimesSorted, SunEndTimesSorted)
+
+    console.log(EndTimesArr)
+
+    //Start Array Accounting for before first meeting
+    StartTimesArr.push(10080)
+    console.log(StartTimesArr)
+
+    //End Array Accounting for after last meeting
+    EndTimesArr.unshift(0)
+    console.log(EndTimesArr)
 
 }
 
